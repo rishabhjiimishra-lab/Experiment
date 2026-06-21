@@ -1,0 +1,20 @@
+[build]
+  command = "vite build"
+  publish = "dist/client"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 3000
+  port = 8888
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[scheduled-functions]]
+  name = "daily-notifications"
+  schedule = "0 7 * * *"
+
+[[scheduled-functions]]
+  name = "monthly-reports"
+  schedule = "0 6 1 * *"
